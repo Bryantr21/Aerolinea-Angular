@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { PilotosService } from '../../../Service/pilotos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insertarpiloto',
@@ -29,7 +30,8 @@ export class InsertarpilotoComponent {
   
   guardar(){
 
-          const codigo =  this.codigo.nativeElement.value;
+     const codigo =  this.codigo.nativeElement.value;
+     if(this.validar_codigo(codigo)){
       const nombre =  this.nombre.nativeElement.value;
       const apellido =  this.apellido.nativeElement.value;
       const sexo =  this.sexo.nativeElement.value;
@@ -37,10 +39,20 @@ export class InsertarpilotoComponent {
       const disponibilidad =  this.disponibilidad.nativeElement.value;
       
       this.pilotoservice.insertarPiloto(codigo, nombre, apellido, sexo, horas_vuelo, disponibilidad);
-      });
+     }else{
+      Swal.fire("Codigo de piloto incorrecto", "El formato del codigo del piloto debe ser PA-0000", "info");
+     }
+      
+    });
+
+      validar_codigo(codigo: string){
+        var patron = /^PA-\d{4}$/;
+        
+        if (patron.test(codigo)){
+            return true;
+        }else{
+            return false;
+        }
     
-  }
-
-
-
+      }
 }
