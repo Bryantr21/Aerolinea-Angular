@@ -13,17 +13,21 @@ export class VuelosService {
 
   constructor(private http: HttpClient) {
     this.listarvuelos = [];
-  }
-  getVuelos() {
-    this.http.get('').subscribe((data: any) => {
-      console.log(data);
-      this.listarvuelos = data;
-    });
-  }
-  getVuelo(id: number) {
-    this.http.get('' + id).subscribe((data: any) => {
-      console.log(data);
+   }
+   getVuelos() {
+    this.http
+      .get('http://localhost:5202/api/Vuelos')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.listarvuelos = data;
+      });
+   }
+   getVuelo(id: number){
+    console.log("el ID es "+id);
+     this.http.get('http://localhost:5202/api/Vuelos/'+id).subscribe((data: any) => {
       this.vuelo = data;
+      console.log(data);
+      console.log(data.iD_vuelo);
     });
   }
   insertVuelo(
