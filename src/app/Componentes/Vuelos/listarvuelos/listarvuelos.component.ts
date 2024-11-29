@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VuelosService } from '../../../Service/vuelos.service';
 
 @Component({
   selector: 'app-listarvuelos',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './listarvuelos.component.css'
 })
 export class ListarvuelosComponent {
-
+  constructor(private vuelosservice: VuelosService){
+    
+  }
 }
