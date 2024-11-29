@@ -19,7 +19,12 @@ export class ListarvuelosComponent {
     return this.vuelosservice.listarvuelos;
   }
 
+  getVuelo(id:number){
+    console.log("listarvuelos.component.ts getVuelo(id:number) :: "+id);
+  }
+
   eliminarVuelo(id:any){
+    console.log(id);
     //this.vuelosservice.deleteVuelo(id);
   }
 }

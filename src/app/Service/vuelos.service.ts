@@ -22,9 +22,11 @@ export class VuelosService {
       });
    }
    getVuelo(id: number){
-    this.http.get('http://localhost:5202/api/Vuelos/'+id).subscribe((data: any) => {
-      console.log(data);
+    console.log("el ID es "+id);
+     this.http.get('http://localhost:5202/api/Vuelos/'+id).subscribe((data: any) => {
       this.vuelo = data;
+      console.log(data);
+      console.log(data.iD_vuelo);
     });
    }
    insertVuelo(

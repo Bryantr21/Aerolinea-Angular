@@ -35,8 +35,8 @@ export class EditarvueloComponent {
     private router: ActivatedRoute
   ){
     this.id_param = this.router.params.subscribe((params)=>{
-      console.log('ID Recupero: ' + params['id']);
-      this.iD_vuelo = params['id'];
+      this.id_vuelo = params['id'];
+      console.log('ID Recupero: ' + this.id_vuelo);
       this.service.getVuelo(this.id_vuelo);
     });
   }  
