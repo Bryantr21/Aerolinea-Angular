@@ -19,6 +19,5 @@ export class ListaraeropuertosComponent {
   }
 
   eliminaraeropuerto(id: any) {
-    console.log(`Eliminar aeropuerto con ID: ${id}`);
-  }
+    this.service.deleteAeropuerto(id);  }
 }
