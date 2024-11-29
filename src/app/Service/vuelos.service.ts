@@ -15,14 +15,14 @@ export class VuelosService {
    }
    getVuelos() {
     this.http
-      .get('')
+      .get('http://localhost:5202/api/Vuelos')
       .subscribe((data: any) => {
         console.log(data);
         this.listarvuelos = data;
       });
    }
    getVuelo(id: number){
-    this.http.get(''+id).subscribe((data: any) => {
+    this.http.get('http://localhost:5202/api/Vuelos/'+id).subscribe((data: any) => {
       console.log(data);
       this.vuelo = data;
     });

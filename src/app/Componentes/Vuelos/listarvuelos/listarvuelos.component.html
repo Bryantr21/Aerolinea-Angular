@@ -1,91 +1,55 @@
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Pricing</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Banh mi cornhole echo park skateboard authentic crucifix neutra tilde lyft biodiesel artisan direct trade mumblecore 3 wolf moon twee</p>
+        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Lista de Vuelos</h1>
       </div>
       <div class="lg:w-2/3 w-full mx-auto overflow-auto">
         <table class="table-auto w-full text-left whitespace-no-wrap">
           <thead>
             <tr>
-<<<<<<< HEAD
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Vuelo</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Fecha</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Hora</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Estatus</th>
-=======
-              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Plan</th>
-              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Speed</th>
-              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Storage</th>
-              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Price</th>
->>>>>>> 91c45bf5b159e76921d1a967e91677c783938409
+
               <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
             </tr>
           </thead>
           <tbody>
 
-<<<<<<< HEAD
-            <tr *ngFor="let camion of listCamiones">
-=======
-            <tr>
->>>>>>> 91c45bf5b159e76921d1a967e91677c783938409
-                <td class="px-4 py-3">Start</td>
-                <td class="px-4 py-3">5 Mb/s</td>
-                <td class="px-4 py-3">15 GB</td>
-                <td class="px-4 py-3 text-lg text-gray-900">Free</td>
+            <tr *ngFor="let vuelo of listVuelos">
+              <td class="px-4 py-3">{{vuelo.num_Vuelo}}</td>
+                <td class="px-4 py-3">{{vuelo.fecha_vuelo}}</td>
+                <td class="px-4 py-3">{{vuelo.hora_vuelo}}:00</td>
+                <td class="px-4 py-3 text-lg text-gray-900">{{vuelo.estatus}}</td>
                 <td class="w-10 text-center">
-                  <input name="plan" type="radio">
+                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a href="editarvuelo/{{ vuelo.iD_vuelo}}" type="button" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                      </svg>
+                    </a>
+
+                    <a href="editarvuelo/{{ vuelo.iD_vuelo}}" type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                      <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                      </svg>
+                    </a>
+                    
+                    <button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                      <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                      </svg>
+                    </button>
+                  </div>
                 </td>
-              </tr>
-
-
-
-            <tr>
-              <td class="px-4 py-3">Start</td>
-              <td class="px-4 py-3">5 Mb/s</td>
-              <td class="px-4 py-3">15 GB</td>
-              <td class="px-4 py-3 text-lg text-gray-900">Free</td>
-              <td class="w-10 text-center">
-                <input name="plan" type="radio">
-              </td>
-            </tr>
-            <tr>
-              <td class="border-t-2 border-gray-200 px-4 py-3">Pro</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3">25 Mb/s</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3">25 GB</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$24</td>
-              <td class="border-t-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
-              </td>
-            </tr>
-            <tr>
-              <td class="border-t-2 border-gray-200 px-4 py-3">Business</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3">36 Mb/s</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3">40 GB</td>
-              <td class="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$50</td>
-              <td class="border-t-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
-              </td>
-            </tr>
-            <tr>
-              <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Exclusive</td>
-              <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">48 Mb/s</td>
-              <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">120 GB</td>
-              <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$72</td>
-              <td class="border-t-2 border-b-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
-              </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-        <a class="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
+      <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto" style="justify-content: flex-end;">
+        <button type="button" class="btn btn-success" style="border-radius:100%;width:40px;height:40px;padding: 0%;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" style="margin:auto;">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
           </svg>
-        </a>
-        <button class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Button</button>
+        </button>
       </div>
     </div>
   </section>
