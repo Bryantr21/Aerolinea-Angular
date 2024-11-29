@@ -25,7 +25,7 @@ export const routes: Routes = [
     {path:'editaravion/:id', component: EditaravionComponent},
     {path:'editarpiloto', component: EditarpilotoComponent},
     {path:'editaraeropuerto', component: EditaraeropuertoComponent},
-    {path:'editarruta', component: EditarrutaComponent},
+    {path:'editarruta/:id', component: EditarrutaComponent},
     {path:'insertarvuelo', component: InsertarvueloComponent},
     {path:'insertaravion', component: InsertaravionComponent},
     {path:'insertarpiloto', component: InsertarpilotoComponent},

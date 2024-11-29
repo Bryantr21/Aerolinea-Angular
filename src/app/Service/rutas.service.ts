@@ -12,21 +12,21 @@ export class RutasService {
   constructor(private http: HttpClient) {
     this.listarutas = [];
   }
-  gatRutas() {
-    this.http.get('').subscribe((data: any) => {
+  getRutas() {
+    this.http.get('http://localhost:5202/api/Rutas').subscribe((data: any) => {
       console.log(data);
       this.listarutas = data;
     });
   }
   getRuta(id: number) {
-    this.http.get('' + id).subscribe((data: any) => {
+    this.http.get('http://localhost:5202/api/Rutas/' + id).subscribe((data: any) => {
       console.log(data);
       this.ruta = data;
     });
   }
   insertRuta(origen_ID: number, destino_ID: number, tiempo_Vuelo: number) {
     this.http
-      .post('', {
+      .post('http://localhost:5202/api/Rutas/', {
         iD_Ruta: 0,
         origen_ID: origen_ID,
         destino_ID: destino_ID,
@@ -50,7 +50,7 @@ export class RutasService {
     tiempo_Vuelo: number
   ) {
     this.http
-      .put('', {
+      .put('http://localhost:5202/api/Rutas/'+ID, {
         iD_Ruta: ID,
         origen_ID: origen_ID,
         destino_ID: destino_ID,
@@ -90,7 +90,7 @@ export class RutasService {
       .then((result) => {
         if (result.isConfirmed) {
           this.http
-            .delete('' + id)
+            .delete('http://localhost:5202/api/Rutas' + id)
             .subscribe((response: any) => {
               console.log(response);
               if (response.respuesta.toUpperCase().includes('ERROR')) {
