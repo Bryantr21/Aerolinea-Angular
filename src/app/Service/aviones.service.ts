@@ -14,7 +14,7 @@ export class AvionesService {
   }
   gatAviones() {
     this.http
-      .get('http://localhost:5202/api/Aviones/getAviones')
+      .get('http://localhost:5202/api/Aviones')
       .subscribe((data: any) => {
         console.log(data);
         this.listaaviones = data;
@@ -22,7 +22,7 @@ export class AvionesService {
   }
   getAvion(id: number) {
     this.http
-      .get('http://localhost:5202/api/Aviones/getAvion/' + id)
+      .get('http://localhost:5202/api/Aviones/' + id)
       .subscribe((data: any) => {
         console.log(data);
         this.avion = data;
@@ -39,7 +39,7 @@ export class AvionesService {
     bool = disponibilidad == '0' ? false : true;
 
     this.http
-      .post('http://localhost:5202/api/Aviones/insertAvion', {
+      .post('http://localhost:5202/api/Aviones', {
         iD_Avion: 0,
         codigo: codigo,
         modelo: modelo,

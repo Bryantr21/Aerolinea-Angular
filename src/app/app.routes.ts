@@ -22,7 +22,7 @@ export const routes: Routes = [
     {path:'listaraeropuertos', component: ListaraeropuertosComponent},
     {path:'listarrutas', component: ListarrutasComponent},
     {path:'editarvuelo', component: EditarvueloComponent},
-    {path:'editaravion', component: EditaravionComponent},
+    {path:'editaravion/:id', component: EditaravionComponent},
     {path:'editarpiloto', component: EditarpilotoComponent},
     {path:'editaraeropuerto', component: EditaraeropuertoComponent},
     {path:'editarruta', component: EditarrutaComponent},
