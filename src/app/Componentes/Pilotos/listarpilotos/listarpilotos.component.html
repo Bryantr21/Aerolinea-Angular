@@ -1,0 +1,69 @@
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">Pilotos WingsAir</h2>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Gestion y control de pilotos</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">____________________________________________________________________________________</p>
+      </div>
+      <div *ngFor="let Pilotos of listPilotos" class="flex flex-wrap">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+          <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Nombre {{Pilotos.nombre + " " + Pilotos.apellido}} </h2>
+          <p class="leading-relaxed text-base mb-4">Codigo: {{Pilotos.codigo}} - Horas de vuelo: {{Pilotos.horasVuelo}} - Sexo: {{Pilotos.sexo}}</p>
+          <span class="inline-flex">
+            <span *ngIf="Pilotos.disponibilidad">
+              <div class="flex">
+                  <div class="h-4 w-2 rounded-full bg-green-500 mr-2" ></div>
+                  <span calss="text-gray-500 mr-2">Disponible</span>
+              </div>
+            </span>
+            <span *ngIf="!Pilotos.disponibilidad">
+              <div class="inline-flex">
+                  <div class="h-4 w-2 rounded-full bg-red-600 mr-2" ></div>
+                  <span calss="text-gray-500 mr-2">No disponible</span>
+              </div>
+            </span>
+          </span>  
+          <a
+              class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0 mt-2"
+              href="editarpiloto/{{ Pilotos.iD_Piloto }}">
+              Editar
+              <svg
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <a
+              class="text-red-500 inline-flex items-center md:mb-2 lg:mb-0"
+              (click)="deletePiloto(Pilotos.iD_Piloto)"
+              >Eliminar
+              <svg
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+
+
+        </div>
+      </div>
+      <button class="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button>
+    </div>
+  </section>
