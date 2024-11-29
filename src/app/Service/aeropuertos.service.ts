@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', // Esto asegura que el servicio esté disponible globalmente
 })
 export class AeropuertosService {
   public listaeropuestos: any[] = [];
