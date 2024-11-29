@@ -7,10 +7,47 @@ import Swal from 'sweetalert2';
 })
 export class AeropuertosService {
   public listaeropuestos: any[] = [];
-
+  public aeropuerto: any;
   constructor(private http: HttpClient) {
     this.listaeropuestos = [];
   }
+
+
+  insertAeropuerto(
+  //iD_Aeropuerto: 0,
+  nombre: string,
+  municipio: string,
+  estado: string,
+  pais: string
+  ){
+  
+    //realizo mi peticion http POST http://localhost:5202/api/Aeropuertos/
+    this.http.post('http://localhost:5202/api/Aeropuertos/',
+      {
+    iD_Aeropuerto: 0,
+    nombre: nombre,
+    municipio: municipio,
+    estado: estado,
+    pais: pais      })
+      .subscribe((response: any)=>{
+
+        console.log('Response:', response); // Depura el contenido
+        const respuesta = response?.respuesta || '';
+
+  if(response.respuesta.toUpperCase().includes('ERROR')){
+    ///Sweet Alet
+    Swal.fire('Error',response.respuesta,'error');
+  }else{
+  
+   Swal.fire('Correcto',response.respuesta,'success').then(()=>
+   {
+  window.location.replace('/listaraeropuertos')
+   }); 
+  }
+  
+      });
+  }
+  
 
   getAeropuertos() {
     this.http.get('http://localhost:5202/api/Aeropuertos/').subscribe((data: any) => {
@@ -18,6 +55,15 @@ export class AeropuertosService {
       this.listaeropuestos = data;
     });
   }
+
+  getAeropuerto(id:number){
+    this.http.get('http://localhost:5202/api/Aeropuertos/'+id).subscribe((data: any) => {
+      console.log(data);
+      this.aeropuerto = data;
+    });
+  }
+
+
 
   deleteAeropuerto(id: any) {
     const swalWithTailwindButtons = Swal.mixin({
@@ -42,7 +88,7 @@ export class AeropuertosService {
         if (result.isConfirmed) {
           // Llamada a la API para eliminar el camión
           this.http
-            .delete('http://localhost:5202/api/Aeropuertos/delete/' + id)
+            .delete('http://localhost:5202/api/Aeropuertos/' + id)
             .subscribe((response: any) => {
               console.log(response);
               if (response.respuesta.toUpperCase().includes('ERROR')) {
